@@ -1,0 +1,20 @@
+<div class="content-box col-lg-12">
+    {% if data.content.show_title %}
+    <div id="article-title">
+        <h2>{{ data.content.title }}</h2>
+    </div>
+    {% endif %}
+    <div id="article-meta">
+
+    </div>
+
+    <div id="article-body">
+        {{ data.content.body|safe }}
+    </div>
+
+    <div id="article-footer">
+
+    </div>
+
+
+</div>

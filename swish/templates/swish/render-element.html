@@ -1,0 +1,15 @@
+{% for element in elements %}
+<div class="element" id="element-{{element.id}}">
+
+
+    {% if element.template %}
+        {% include element.data.template %}
+    {% elif element.content|length > 0 %}
+        {{ element.content }}
+    {% else %}
+        {% include element.template %}
+    {% endif %}
+
+
+</div>
+{% endfor %}

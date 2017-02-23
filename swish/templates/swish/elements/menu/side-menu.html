@@ -1,0 +1,5 @@
+<div class="list-group side-menu">
+    {% for menu_item in element.data.data.menu %}
+          <a href="{{ menu_item.link }}" class="list-group-item">{{ menu_item.title }}</a>
+    {% endfor %}
+</div>

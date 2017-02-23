@@ -1,0 +1,135 @@
+{% load template_engine %}
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jody Fitzpatrick">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/selectize.css" type="text/css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/vanillabox/vanillabox.css" type="text/css">
+
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/style.css" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    <title>{% if request.page.meta_title|length == 0 %}{{request.page.title }}{% else %}{{request.page.meta_title}}{% endif %}</title>
+
+    <style>
+    body{ background-color: #000; background:url(https://i.imgur.com/c7k1OX3.jpg); background-repeat: no-repeat; background-size:cover; background-position:center;    background-attachment: fixed; }
+        .job-title {
+    display: inline-block;
+    font-size: 1.35em;
+    width: 100%;
+}
+.col-md-8{ background: #fff; }
+#right-sidebar, .right-sidebar{ background-color:#ffffff; padding-bottom:20px;}
+#page-main{ background-color: #ffffff; padding-bottom:20px; }
+    </style>
+</head>
+
+<body class="page-sub-page">
+<!-- Wrapper -->
+<div class="wrapper">
+<!-- Header -->
+<div class="navigation-wrapper">
+    <div class="secondary-navigation-wrapper">
+        <div class="container">
+            <div class="navigation-contact pull-left">Email Us:  <span class="opacity-70">info@hireavet.us</span></div>
+            <ul class="secondary-navigation list-unstyled pull-right">
+                <li><a href="/post-job/">Post a Job</a></li>
+                <li><a href="/products/">Products &amp; Services</a></li>
+                <li><a href="/support/">Customer Service</a></li>
+                <li><a href="/employer/">Employer</a></li>
+            </ul>
+        </div>
+    </div><!-- /.secondary-navigation -->
+    <div class="primary-navigation-wrapper">
+        <header class="navbar" id="top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand nav" id="brand">
+                        <a href="/"><img src="{{ request.board.logo_url }}" style="width:250px;" alt="{{request.board.name}}"></a>
+                    </div>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/" class="has-child no-link">Home</a>
+
+                        </li>
+                        <li>
+                            <a href="/job/search/?q=&in=" class=" has-child no-link">Jobs</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/job/search/?q=&in=">Browse Jobs</a></li>
+                                <li><a href="/post-job/">Post Jobs</a></li>
+                                <!--
+                                <li><a href="course-detail-v1.html">Course Detail v1</a></li>
+                                <li><a href="course-detail-v2.html">Course Detail v2</a></li>
+                                <li><a href="course-detail-v3.html">Course Detail v3</a></li> -->
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/employer/" class="has-child no-link">Employers</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/about/">Why HireAVet?</a></li>
+                                <li><a href="/products/">Products and Services</a></li>
+                                <li><a href="/post-job/">Post a Job</a></li>
+                                <!-- <li><a href="/account/">My Account</a></li> -->
+
+                                <!--
+                                <li><a href="microsite.html">Company Profile</a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="members.html">Members</a></li>
+                                <li><a href="member-detail.html">Member Detail</a></li>
+                                <li><a href="register-sign-in.html">Register & Sign In</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li> -->
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="has-child no-link">Events</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/events/career-fairs/">Career Fairs</a></li>
+                                <li><a href="/events/special/">Special Events</a></li>
+                                <li><a href="/events/hiring/">Hiring Events</a></li>
+                                <li><a href="/events/seminars/">Seminars</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/about/">About Us</a>
+                        </li><!--
+                        <li>
+                            <a href="/blog/" class="has-child no-link">Blog</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/blog/vets/">For Vets</a></li>
+                                <li><a href="/blog/employers/">For Employers</a></li>
+
+                            </ul>
+                        </li>
+-->
+                        <li>
+                            <a href="/contact/">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav><!-- /.navbar collapse-->
+            </div><!-- /.container -->
+        </header><!-- /.navbar -->
+    </div><!-- /.primary-navigation -->
+    <div class="background">
+        <img src="https://i.imgur.com/Eh1dOph.png"  alt="background">
+    </div>
+</div>
+<!-- end Header -->

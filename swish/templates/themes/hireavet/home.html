@@ -1,0 +1,656 @@
+{% load template_engine %}
+<!DOCTYPE html>
+
+<html lang="en-US" xmlns="https://www.w3.org/1999/html" xmlns="https://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Theme Starz">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/selectize.css" type="text/css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/vanillabox/vanillabox.css" type="text/css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/layerslider.css" type="text/css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/flexslider.css" type="text/css">
+
+    <link rel="stylesheet" href="https://s3.amazonaws.com/hireavet/universo/assets/css/style.css" type="text/css">
+
+       <title>{% if request.page.meta_title|length == 0 %}{{request.page.title }}{% else %}{{request.page.meta_title}}{% endif %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+
+<style>
+    #homepage-slider .flexslider h2 {
+    display: block;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px #555;
+}
+</style>
+</head>
+
+<body class="page-homepage-courses">
+<!-- Wrapper -->
+<div class="wrapper">
+<!-- Header -->
+<div class="navigation-wrapper">
+    <div class="secondary-navigation-wrapper">
+        <div class="container">
+            <div class="navigation-contact pull-left">Have a question?  <span class="opacity-70"><a href="/contact/">Contact us</a></span></div>
+            <ul class="secondary-navigation list-unstyled pull-right">
+                <li><a href="/post-job/">Post a Job</a></li>
+                <li><a href="/products/">Products &amp; Services</a></li>
+                <li><a href="/support/">Customer Service</a></li>
+                <li><a href="/employer/">Employer</a></li>
+            </ul>
+        </div>
+    </div><!-- /.secondary-navigation -->
+    <div class="primary-navigation-wrapper">
+        <header class="navbar" id="top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand nav" id="brand">
+                        <a href="/"><img src="{{ request.board.logo_url }}" style="width:250px;" alt="{{request.board.name}}"></a>
+                    </div>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/" class="has-child no-link">Home</a>
+
+                        </li>
+                        <li>
+                            <a href="/job/search/?q=&in=" class=" has-child no-link">Jobs</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/job/search/?q=&in=">Browse Jobs</a></li>
+                                <li><a href="/post-job/">Post Jobs</a></li>
+                                <!--
+                                <li><a href="course-detail-v1.html">Course Detail v1</a></li>
+                                <li><a href="course-detail-v2.html">Course Detail v2</a></li>
+                                <li><a href="course-detail-v3.html">Course Detail v3</a></li> -->
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/employer/" class="has-child no-link">Employers</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/about/">Why HireAVet?</a></li>
+                                <li><a href="/post-job/">Post a Job</a></li>
+                                <li><a href="/products/">Products and Services</a></li>
+                                <!-- <li><a href="/account/">My Account</a></li> -->
+
+                                <!--
+                                <li><a href="microsite.html">Company Profile</a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="members.html">Members</a></li>
+                                <li><a href="member-detail.html">Member Detail</a></li>
+                                <li><a href="register-sign-in.html">Register & Sign In</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li> -->
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#" class="has-child no-link">Events</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/events/career-fairs/">Career Fairs</a></li>
+                                <li><a href="/events/special/">Special Events</a></li>
+                                <li><a href="/events/hiring/">Hiring Events</a></li>
+                                <li><a href="/events/seminars/">Seminars</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/about/">About Us</a>
+                        </li><!--
+                        <li>
+                            <a href="/blog/" class="has-child no-link">Blog</a>
+                            <ul class="list-unstyled child-navigation">
+                                <li><a href="/blog/vets/">For Veterans</a></li>
+                                <li><a href="/blog/employers/">For Employers</a></li>
+
+                            </ul>
+                        </li>
+-->
+                        <li>
+                            <a href="/contact/">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav><!-- /.navbar collapse-->
+            </div><!-- /.container -->
+        </header><!-- /.navbar -->
+    </div><!-- /.primary-navigation -->
+    <div class="background" style="text-align:center;">
+        <img src="https://i.imgur.com/Eh1dOph.png"  alt="background">
+    </div>
+</div><!-- end Header -->
+
+<!-- Homepage Slider -->
+<section id="homepage-slider">
+    <div class="flexslider">
+        <ul class="slides">
+            <li class="slide">
+                <figure>
+                    <div class="slide-wrapper">
+                        <div class="inner">
+                            <div class="container">
+                                <h2>Our Dedicated Vets are Highly Trained and Ready to Serve </h2>
+                                <h1>HIRE A VET </h1>
+                                <div><a href="/employer/" class="btn">FIND A VETERAN</a></div>
+                            </div>
+                        </div><!-- /.inner -->
+                    </div><!-- /.wrapper -->
+                </figure>
+                <img src="https://i.imgur.com/IDoHGj8.jpg">
+            </li>
+                        <li class="slide">
+                <figure>
+                    <div class="slide-wrapper">
+                        <div class="inner">
+                            <div class="container">
+                                <h2>Let us show you the path to finding a great career.</h2>
+                                <h1>BEGIN YOUR CAREER JOURNEY HERE</h1>
+                                <div><a href="/account/login/" class="btn">I'M A VETERAN</a></div>
+                            </div>
+                        </div><!-- /.inner -->
+                    </div><!-- /.wrapper -->
+                </figure>
+                <img src="https://i.imgur.com/LjLNhZp.jpg">
+            </li>
+
+
+            <li class="slide">
+                <figure>
+                    <div class="slide-wrapper">
+                        <div class="inner">
+                            <div class="container">
+                                <h2>FIND OUT WHY HIREAVET.US IS A GREAT SOLUTION.</h2>
+                                <h1>HIRE A VET</h1>
+                                <div><a href="/products/" class="btn">PRODUCTS AND SERVICES</a></div>
+                            </div>
+                        </div><!-- /.inner -->
+                    </div><!-- /.wrapper -->
+                </figure>
+                <img src="https://i.imgur.com/S0rWWNW.jpg">
+            </li>
+
+        </ul>
+    </div>
+</section>
+<!-- end Homepage Slider -->
+
+<!-- Page Content -->
+<div id="page-content">
+    <section id="featured-courses">
+        <div class="block">
+            <div class="container">
+                <header><h2>Hire a Veteran - Career Advice &amp; News</h2></header>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <article class="featured-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="https://www.linkedin.com/pulse/dont-hire-candidate-until-you-read-shocking-jody-fitzpatrick?trk=prof-post" target="_blank"><img src="https://i.imgur.com/IDoHGj8.jpg"></a></div>
+                            </figure>
+                            <div class="description">
+                                <a href="https://www.linkedin.com/pulse/dont-hire-candidate-until-you-read-shocking-jody-fitzpatrick?trk=prof-post"><h3>Why You Should Hire a Vet</h3></a>
+                                <a href="#" class="course-category">Blog Outreach</a>
+                                <hr>
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>08-08-2016</span>
+                                </div>
+                                <div class="stick-to-bottom"><a target="_blank" href="https://www.linkedin.com/pulse/dont-hire-candidate-until-you-read-shocking-jody-fitzpatrick?trk=prof-post" class="btn btn-framed btn-color-grey btn-small">Read Article.</a></div>
+                            </div>
+                        </article><!-- /.featured-course -->
+                    </div><!-- /.col-md-3 -->
+                    <div class="col-md-3 col-sm-3">
+                        <article class="featured-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="/about/"><img src="http://i.imgur.com/ZgYgX7g.png"></a></div>
+                            </figure>
+                            <div class="description">
+                                <a href="/about/"><h3>We Love Our Veterans</h3></a>
+                                <a href="/about/" class="course-category">Learn More About What We Do</a>
+                                <hr>
+                                <div class="course-meta"><!--
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>3 months</span> -->
+                                </div>
+                                <div class="stick-to-bottom"><a href="course-detail-v1.html" class="btn btn-framed btn-color-grey btn-small">About Our Company</a></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <article class="featured-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="/contact/"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-03.jpg"></a></div>
+                            </figure>
+                            <div class="description">
+                                <a href="/support/"><h3>Our Dedicated Team Wants to Help</h3></a>
+                                <a href="/contact/" class="course-category">Reach out and contact us today.</a>
+                                <hr>
+                                <div class="course-meta"><!--
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>3 months</span> -->
+                                </div>
+                                <div class="stick-to-bottom"><a href="/contact/" class="btn btn-framed btn-color-grey btn-small">Contact Us</a></div>
+                            </div>
+                        </article>
+                    </div><!-- /.col-md-3 -->
+                    <div class="col-md-3 col-sm-3">
+                        <article class="featured-course clearfix">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="/post-job/"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-04.jpg"></a></div>
+                            </figure>
+                            <div class="description">
+                                <a href="/post-job/"><h3>Are Your Hiring? Let Us Help You Find the Perfect Candidate.</h3></a>
+                                <a href="/job/search/" class="course-category">Find the Perfect Job</a>
+                                <hr><!--
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>3 months</span>
+                                </div> -->
+                                <div class="stick-to-bottom"><a href="/products/" class="btn btn-framed btn-color-grey btn-small">Products and Services</a></div>
+                            </div>
+                        </article>
+                    </div><!-- /.col-md-3 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+            <div class="background background-color-grey-background"></div>
+        </div><!-- /.block -->
+    </section>
+    <!-- /#featured-courses -->
+
+
+    <section id="latest-courses" style="display:none;">
+        <div class="block">
+            <div class="container">
+                <header><h2>Latest Courses</h2></header>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="latest-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="course-detail-v1.html"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-01.jpg"></a></div>
+                            </figure>
+                            <aside class="description">
+                                <a href="course-detail-v1.html"><h4>Neuroscience for the Beginners: Complete Course</h4></a>
+                                <!--<a href="#" class="course-category">Science</a>-->
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et urna fringilla</p>
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>3 months</span>
+                                </div>
+                            </aside>
+                            <hr>
+                        </div><!-- /.latest-course -->
+                    </div><!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                        <div class="latest-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="course-detail-v1.html"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-02.jpg"></a></div>
+                            </figure>
+                            <aside class="description">
+                                <a href="course-detail-v1.html"><h4>Architecture Photography: Power of Light and Shadows</h4></a>
+                                <!--<a href="#" class="course-category">Science</a>-->
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et urna fringilla</p>
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>8 lessons</span>
+                                </div>
+                            </aside>
+                            <hr>
+                        </div><!-- /.latest-course -->
+                    </div><!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                        <div class="latest-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="course-detail-v1.html"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-03.jpg"></a></div>
+                            </figure>
+                            <aside class="description">
+                                <a href="course-detail-v1.html"><h4>Character Drawing: Basic and Advanced Principles</h4></a>
+                                <!--<a href="#" class="course-category">Science</a>-->
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et urna fringilla</p>
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>8 lessons</span>
+                                </div>
+                            </aside>
+                            <hr>
+                        </div><!-- /.latest-course -->
+                    </div><!-- /.col-md-4 -->
+                </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="latest-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="course-detail-v1.html"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-04.jpg"></a></div>
+                            </figure>
+                            <aside class="description">
+                                <a href="course-detail-v1.html"><h4>Introduction to modo 701</h4></a>
+                                <!--<a href="#" class="course-category">Science</a>-->
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et urna fringilla</p>
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>3 months</span>
+                                </div>
+                            </aside>
+                            <hr>
+                        </div><!-- /.latest-course -->
+                    </div><!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                        <div class="latest-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="course-detail-v1.html"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-01.jpg"></a></div>
+                            </figure>
+                            <aside class="description">
+                                <a href="course-detail-v1.html"><h4>Become self marketer</h4></a>
+                                <!--<a href="#" class="course-category">Science</a>-->
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et urna fringilla</p>
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>8 lessons</span>
+                                </div>
+                            </aside>
+                            <hr>
+                        </div><!-- /.latest-course -->
+                    </div><!-- /.col-md-4 -->
+                    <div class="col-md-4">
+                        <div class="latest-course">
+                            <figure class="image">
+                                <div class="image-wrapper"><a href="course-detail-v1.html"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/course-02.jpg"></a></div>
+                            </figure>
+                            <aside class="description">
+                                <a href="course-detail-v1.html"><h4>History in complex view</h4></a>
+                                <!--<a href="#" class="course-category">Science</a>-->
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et urna fringilla</p>
+                                <div class="course-meta">
+                                    <span class="course-date"><i class="fa fa-calendar-o"></i>01-03-2014</span>
+                                    <span class="course-length"><i class="fa fa-clock-o"></i>8 lessons</span>
+                                </div>
+                            </aside>
+                            <hr>
+                        </div><!-- /.latest-course -->
+                    </div><!-- /.col-md-4 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.block -->
+    </section>
+    <!-- /#latest-courses -->
+
+    <!-- Testimonial -->
+    <section id="adsense" style="background:#013;">
+        <div class="">
+            <div class="container" >
+                <div class="author-carousel">
+                    <div class="author has-dark-background">
+
+                            <div style="text-align:center; margin: 0 auto;">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- home-page-leader -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1729450395995362"
+     data-ad-slot="7889107634"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+                    </div><!-- /.author
+                    <div class="author has-dark-background">
+                        <blockquote>
+                            <figure class="author-picture"><img src="" boi="https://s3.amazonaws.com/hireavet/universo/assets/img/student-testimonial.jpg" alt=""></figure>
+                            <article class="paragraph-wrapper">
+                                <div class="inner">
+                                    <header>Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit et, interdum semper quam. Fusce in interdum tortor.
+                                        Ut sollicitudin lectus dolor eget imperdiet libero pulvinar sit amet.</header>
+                                    <footer>Claire Doe</footer>
+                                </div>
+                            </article>
+                        </blockquote>
+                    </div><!-- /.author -->
+                </div><!-- /.author-carousel -->
+            </div><!-- /.container -->
+        </div><!-- /.block -->
+    </section>
+    <!-- end Testimonial -->
+
+    <section id="course-list">
+        <div class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+
+                <header><h2>Recent Job Listings</h2></header>
+                <div class="table-responsive">
+                    <table class="table table-hover course-list-table tablesorter">
+                        <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Company Name</th>
+                            <th class="starts">Job Type</th>
+                            <th class="length">Posted</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for posting in data.postings %}
+                        <tr>
+                            <th class="course-title">
+                                <a href="/job/{{ posting.company_name|slugify }}/{{ posting.job_title|slugify }}/id-{{ posting.token|slice:":7"}}/">
+                                    {{posting.job_title}}</a> <br />
+                                {{ posting.job_location_city }}, {{ posting.job_location_state }}
+                            </th>
+                            <th class="course-category"><a href="/company/?token={{posting.company.token}}">{{ posting.company_name}}</a></th>
+                            <th>{{posting.get_job_type_display}}</th>
+                            <th>{{ posting.created }}</th>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <a href="/job/search/" class="btn btn-framed btn-color-grey pull-right">All Job Postings</a>
+                    </div>
+                    <div class="col-md-4">
+
+                                 {% element_position "right_sidebar" request %}
+                    {% if request.board.domain == 'www.hiresvets.org'  %}
+                    <!--HiresVets - 300x600--><span data-id="16" class="mgv1_1"><script>(window.jQuery || document.write("<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"><\/script>"))</script><script type="text/javascript">(function(){if (mysa_mgv1_1) return; var ma = document.createElement("script"); ma.type = "text/javascript"; ma.async = true; ma.src = "http" + ("https:"==document.location.protocol?"s":"") + "://www.jacksoncharlesgroup.com/mysa2/api/index.php?js&g&1&v=2"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ma, s) })();var mysa_mgv1_1=true;</script></span>
+                    {% else %}
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- right-side-bar -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1729450395995362"
+     data-ad-slot="7330704433"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                        
+                    {% endif %}
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </section><!-- /.course-list -->
+
+    <!-- Partners, Become a Partner -->
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <section id="partners">
+                        <header>
+                            <h2>Partners & Donors</h2>
+                        </header>
+                        <div class="section-content">
+                            <div class="logos">
+                                <div class="logo"><a href="#"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/logo-partner-01.png" alt=""></a></div>
+                                <div class="logo"><a href="#"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/logo-partner-02.png" alt=""></a></div>
+                                <div class="logo"><a href="#"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/logo-partner-03.png" alt=""></a></div>
+                                <div class="logo"><a href="#"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/logo-partner-04.png" alt=""></a></div>
+                                <div class="logo"><a href="#"><img src="https://s3.amazonaws.com/hireavet/universo/assets/img/logo-partner-05.png" alt=""></a></div>
+                            </div>
+                        </div>
+                    </section>
+                </div><!-- /.col-md-9 -->
+                <div class="col-md-3">
+                    <section id="donation">
+                        <header>
+                            <h2>Make a Donation</h2>
+                        </header>
+                        <div class="section-content">
+                            <a href="/contact/" class="universal-button">
+                                <h3>Become a Partner</h3>
+                                <figure class="date"><i class="fa fa-arrow-right"></i></figure>
+                            </a>
+                        </div><!-- /.section-content -->
+                    </section>
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div>
+    <!-- end Partners, Become a Partner -->
+
+</div>
+<!-- end Page Content -->
+
+<!-- Footer -->
+<footer id="page-footer">
+    <section id="footer-top">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-social">
+                    <figure>Follow us:</figure>
+                    <div class="icons">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div><!-- /.icons -->
+                </div><!-- /.social -->
+                <div class="search pull-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                    </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.pull-right -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </section><!-- /#footer-top -->
+
+    <section id="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <aside class="logo">
+                         <a href="/"><img src="{{ request.board.logo_url }}" style="width:250px;" alt="{{request.board.name}}"></a>
+                   </aside>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    {% if request.board.domain == 'www.hireavet.us' %}
+                    <aside>
+                        <header><h4>Contact Us</h4></header>
+                        <address>
+                            <strong>HireAVet.us</strong>
+                            <br>
+                            <span></span>
+                            <br><br>
+                            <span>Dry Fork, VA 24549</span>
+                            <br>
+                            <abbr title="Telephone">Telephone:</abbr> +1 (434) 421-4611
+                            <br>
+                            <abbr title="Email">Have a question?</abbr> <a href="/contact/">Contact Us</a>
+                        </address>
+                    </aside>
+                    {% endif %}
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    <aside>
+                        <header><h4>Company Info</h4></header>
+                        <ul class="list-links">
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">What We Do</a></li>
+                            <li><a href="#">Our Mission</a></li>
+                            <li><a href="#">How we Do It</a></li>
+                            <li><a href="/contact/">Contact Us</a></li>
+                            <li><a href="/resources/">Resources</a></li>
+                        </ul>
+                    </aside>
+                </div><!-- /.col-md-3 -->
+                <div class="col-md-3 col-sm-4">
+                    <aside>
+                        <header><h4>About {{request.board.name}}</h4></header>
+                        <p>
+                            We believe in our country, our families and in those who have helped
+                            us protect them. We love our veterans. We want to see them grow not
+                            just in uniform but in the civilian world where their
+                            dedication, and training can be put to good use. Our veterans make the
+                            best candidates.
+                        </p>
+                        <div>
+                            <a href="#" class="read-more">All News</a>
+                        </div>
+                    </aside>
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+        <div class="background"><img src="https://i.imgur.com/Eh1dOph.png" class="" alt=""></div>
+    </section><!-- /#footer-content -->
+
+    <section id="footer-bottom">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="copyright">© {{request.board.name}}, All rights reserved</div><!-- /.copyright -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </section><!-- /#footer-bottom -->
+
+</footer>
+<!-- end Footer -->
+
+</div>
+<!-- end Wrapper -->
+
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/selectize.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jQuery.equalHeights.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/icheck.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jquery.vanillabox-0.1.5.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/greensock.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/layerslider.transitions.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/layerslider.kreaturamedia.jquery.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/retina-1.1.0.min.js"></script>
+
+<script type="text/javascript" src="https://s3.amazonaws.com/hireavet/universo/assets/js/custom.js"></script>
+
+
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"d61b6fc6c474bcd9441f4ea64","lid":"a886765bb8"}) })</script>
+
+
+</body>
+</html>
